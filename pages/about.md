@@ -3,10 +3,7 @@ layout: default
 title: About
 ---
 
-Hello! This is my awesome about page! Check out some cool links:
+This is the place to tell about me.
 
-* [Smashing Magazine](https://www.smashingmagazine.com)
-* [TechCrunch](http://techcrunch.com/)
-* [Ars Technica](http://arstechnica.com/)
-* [Codoki](http://codoki.com/)
-* [Mozilla Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Resume](https://google.fr)
+* <i class="fa fa-github"></i> [Github](https://google.fr)

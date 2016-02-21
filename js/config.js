@@ -1,12 +1,12 @@
 $(function () {
 
   CMS.init({
-    siteName: 'Blog',
-    siteTagline: 'Blog Technologies',
+    siteName: '<i class="fa fa-th"></i> Blog',
+    siteTagline: 'New technologies reviews, tests and much more',
     siteEmail: '',
     siteAuthor: 'Gabriel Malet',
     siteNavItems: [
-      { name: 'Github', href: 'https://github.com/ubikz', newWindow: true },
+      { name: '<i class="fa fa-github"></i> Github', href: 'https://github.com/ubikz', newWindow: true },
       { name: 'About' }
     ],
     postsFolder: 'posts',
