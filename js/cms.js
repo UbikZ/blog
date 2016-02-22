@@ -32,9 +32,9 @@ var CMS = {
     get siteAttributes() {
       return [
         { attr: 'title', value: CMS.settings.siteName.striptags() },
-        { attr: '.cms_sitename', value: CMS.settings.siteName.striptags() },
-        { attr: '.cms_tagline', value: CMS.settings.siteTagline.striptags() },
-        { attr: '.cms_footer_text', value: CMS.settings.footerText.striptags() }
+        { attr: '.cms_sitename', value: CMS.settings.siteName },
+        { attr: '.cms_tagline', value: CMS.settings.siteTagline },
+        { attr: '.cms_footer_text', value: CMS.settings.footerText }
       ];
     },
     mode: 'Github',
