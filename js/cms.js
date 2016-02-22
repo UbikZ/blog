@@ -1,11 +1,8 @@
-/*
- * CMS.js v1.0.0
- * Copyright 2015 Chris Diana
- * www.cdmedia.github.io/cms.js
- * Free to use under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- */
 'use strict';
+
+String.prototype.striptags = function () {
+  return this.replace(/(<([^>]+)>)/ig, "");
+};
 
 var CMS = {
 
@@ -34,10 +31,10 @@ var CMS = {
     loader: '<div class="loader">Loading...</div>',
     get siteAttributes() {
       return [
-        { attr: 'title', value: CMS.settings.siteName.replace(/(<([^>]+)>)/ig,"") },
-        { attr: '.cms_sitename', value: CMS.settings.siteName },
-        { attr: '.cms_tagline', value: CMS.settings.siteTagline },
-        { attr: '.cms_footer_text', value: CMS.settings.footerText }
+        { attr: 'title', value: CMS.settings.siteName.striptags() },
+        { attr: '.cms_sitename', value: CMS.settings.siteName.striptags() },
+        { attr: '.cms_tagline', value: CMS.settings.siteTagline.striptags() },
+        { attr: '.cms_footer_text', value: CMS.settings.footerText.striptags() }
       ];
     },
     mode: 'Github',
@@ -79,18 +76,18 @@ var CMS = {
     var map = {
 
       // Main view / Frontpage
-      '' : function () {
-          CMS.renderPosts();
+      '': function () {
+        CMS.renderPosts();
       },
 
       // Post view / single view
-      '#post' : function () {
+      '#post': function () {
         var id = url.split('#post/')[1].trim();
         CMS.renderPost(id);
       },
 
       // Page view
-      '#page' : function () {
+      '#page': function () {
         var title = url.split('#page/')[1].trim();
         CMS.renderPage(title);
       }
@@ -131,7 +128,7 @@ var CMS = {
           $tpl = $(tpl);
 
         $tpl.find('.post-title').html(post.title);
-        $tpl.find('.post-date').html((post.date.getMonth() + 1) + '/' + post.date.getDate() + '/' +  post.date.getFullYear());
+        $tpl.find('.post-date').html((post.date.getMonth() + 1) + '/' + post.date.getDate() + '/' + post.date.getFullYear());
         $tpl.find('.post-content').html(post.contentData);
 
         CMS.settings.mainContainer.html($tpl).hide().fadeIn(CMS.settings.fadeSpeed);
@@ -147,7 +144,7 @@ var CMS = {
         $tpl = $(tpl);
 
       var title = '<a href="#">' + post.title + '</a>',
-        date = (post.date.getMonth() + 1) + '/' + post.date.getDate() + '/' +  post.date.getFullYear(),
+        date = (post.date.getMonth() + 1) + '/' + post.date.getDate() + '/' + post.date.getFullYear(),
         snippet = post.contentData.split('.')[0] + '.';
 
       var postLink = $tpl.find('.post-title'),
@@ -216,7 +213,7 @@ var CMS = {
       if (v.length) {
         v.replace(/^\s+|\s+$/g, '').trim();
         var i = v.split(':');
-        var val = v.slice(v.indexOf(':')+1);
+        var val = v.slice(v.indexOf(':') + 1);
         k = i[0];
 
         val = (k == 'date' ? (new Date(val)) : val);
@@ -232,7 +229,7 @@ var CMS = {
     var contentData = data.join();
     contentObj.contentData = marked(contentData);
 
-    switch(type) {
+    switch (type) {
       case 'post':
         CMS.posts.push(contentObj);
         break;
@@ -252,7 +249,7 @@ var CMS = {
     var urlFolder = '',
       url;
 
-    switch(type) {
+    switch (type) {
       case 'post':
         urlFolder = CMS.settings.postsFolder;
         break;
@@ -286,7 +283,7 @@ var CMS = {
     var folder = '',
       url = '';
 
-    switch(type) {
+    switch (type) {
       case 'post':
         folder = CMS.settings.postsFolder;
         break;
@@ -359,11 +356,11 @@ var CMS = {
         var errorMsg;
         if (CMS.settings.mode == 'Github') {
           errorMsg = 'Error loading ' + type + 's directory. Make sure ' +
-            'your Github settings are correctly set in your config.js file.';
+          'your Github settings are correctly set in your config.js file.';
         } else {
           errorMsg = 'Error loading the ' + type + 's directory. Make sure ' +
-            'the ' + type + 's directory is set correctly in config and  ' +
-            'the ' + type + 's directory indexing feature is enabled.';
+          'the ' + type + 's directory is set correctly in config and  ' +
+          'the ' + type + 's directory indexing feature is enabled.';
         }
         CMS.renderError(errorMsg);
       }

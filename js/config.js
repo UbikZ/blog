@@ -2,7 +2,7 @@ $(function () {
 
   CMS.init({
     siteName: '<i class="fa fa-th"></i> Blog',
-    siteTagline: 'New technologies reviews, tests and much more',
+    siteTagline: '<i class="fa fa-code"></i> New technologies reviews, tests and much more',
     siteEmail: '',
     siteAuthor: 'Gabriel Malet',
     siteNavItems: [
