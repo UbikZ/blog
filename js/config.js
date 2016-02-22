@@ -1,8 +1,8 @@
 $(function () {
 
   CMS.init({
-    siteName: '<i class="fa fa-th"></i> Blog',
-    siteTagline: '<i class="fa fa-code"></i> New technologies reviews, tests and much more',
+    siteName: '<i class="fa fa-code"></i> Blog',
+    siteTagline: 'New technologies reviews, tests and much more',
     siteEmail: '',
     siteAuthor: 'Gabriel Malet',
     siteNavItems: [

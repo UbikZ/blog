@@ -6,4 +6,4 @@ title: About
 This is the place to tell about me.
 
 * [Resume](https://google.fr)
-* <i class="fa fa-github"></i> [Github](https://google.fr)
+* [Github](https://google.fr)
